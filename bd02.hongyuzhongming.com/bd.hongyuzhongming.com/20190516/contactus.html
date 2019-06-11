@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cmn-Hans">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- 避免IE使用兼容模式 -->
+	<meta name="renderer" content="webkit|ie-comp|ie-stand" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="KEYWords" contect="" />
+	<meta name="Description" contect="" />
+	<meta name="Author" contect="fydhem" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" href="css/media.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/loading.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<title>天津鸿宇众明商贸有限公司</title>
+</head>
+<style>
+	body {
+		margin: 0;
+		font: 13px/1.5 "Microsoft YaHei", "Helvetica Neue", "Sans-Serif";
+		min-height: 960px;
+		min-width: 600px;
+	}
+
+	.my-map {
+		margin: 0 auto;
+		width: 1100px;
+		height: 600px;
+	}
+
+	.amap-container {
+		height: 100%;
+	}
+</style>
+<body>
+	<div class="header" id="header">
+		<div class=" w1150">
+			<div class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> </button>
+						<div>
+							<a href="#"><img src="./img/logo.jpeg" style='width: 100px;height: 100px;' alt="">天津鸿宇众明商贸有限公司</a>
+						</div>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="about_us.html">关于我们</a>
+							</li>
+							<li>
+								<a href="product.html">产品中心</a>
+							</li>
+							<li>
+								<a href="contactus.html">联系我们</a>
+							</li>
+							<li>
+								<a href="#">022-65178263</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="indexbanner">
+		<img src="img/banner.jpeg" />
+	</div>
+	<div id="contactus_main" class="contactus_main">
+		<div class="w1150">
+			<p>公司地址：天津市武清区黄花店镇政府东路391号</p>
+			<p>电话：022-65178263</p>
+
+			<div id="wrap" class="my-map">
+				<div id="mapContainer"></div>
+			</div>
+		</div>
+
+		
+	</div>
+	<div id="footer" class="footer">
+		<div class="banquan">
+			<p>Copyright 2007 - 2016 天津鸿宇众明商贸有限公司 版权所有 津ICP备18007920号-1</p>
+		</div>
+	</div>
+		<script src="//webapi.amap.com/maps?v=1.3&key=8325164e247e15eea68b59e89200988b"></script>
+		<script>
+			!function () {
+				var infoWindow, map, level = 10,
+					center = { lng: 117.121141, lat: 39.580328 },
+					features = [];
+
+				function loadFeatures() {
+					for (var feature, data, i = 0, len = features.length, j, jl, path; i < len; i++) {
+						data = features[i];
+						switch (data.type) {
+							case "Marker":
+								feature = new AMap.Marker({
+									map: map, position: new AMap.LngLat(data.lnglat.lng, data.lnglat.lat),
+									zIndex: 3, extData: data, offset: new AMap.Pixel(data.offset.x, data.offset.y), title: data.name,
+									content: '<div class="icon icon-' + data.icon + ' icon-' + data.icon + '-' + data.color + '"></div>'
+								});
+								break;
+							case "Polyline":
+								for (j = 0, jl = data.lnglat.length, path = []; j < jl; j++) {
+									path.push(new AMap.LngLat(data.lnglat[j].lng, data.lnglat[j].lat));
+								}
+								feature = new AMap.Polyline({
+									map: map, path: path, extData: data, zIndex: 2,
+									strokeWeight: data.strokeWeight, strokeColor: data.strokeColor, strokeOpacity: data.strokeOpacity
+								});
+								break;
+							case "Polygon":
+								for (j = 0, jl = data.lnglat.length, path = []; j < jl; j++) {
+									path.push(new AMap.LngLat(data.lnglat[j].lng, data.lnglat[j].lat));
+								}
+								feature = new AMap.Polygon({
+									map: map, path: path, extData: data, zIndex: 1,
+									strokeWeight: data.strokeWeight, strokeColor: data.strokeColor, strokeOpacity: data.strokeOpacity,
+									fillColor: data.fillColor, fillOpacity: data.fillOpacity
+								});
+								break;
+							default: feature = null;
+						}
+						if (feature) { AMap.event.addListener(feature, "click", mapFeatureClick); }
+					}
+				}
+
+				function mapFeatureClick(e) {
+					if (!infoWindow) { infoWindow = new AMap.InfoWindow({ autoMove: true }); }
+					var extData = e.target.getExtData();
+					infoWindow.setContent("<h5>" + extData.name + "</h5><div>" + extData.desc + "</div>");
+					infoWindow.open(map, e.lnglat);
+				}
+
+				map = new AMap.Map("mapContainer", { center: new AMap.LngLat(center.lng, center.lat), level: level });
+
+				loadFeatures();
+
+				map.on('complete', function () {
+					map.plugin(["AMap.ToolBar", "AMap.OverView", "AMap.Scale"], function () {
+						map.addControl(new AMap.ToolBar);
+						map.addControl(new AMap.OverView({ isOpen: true }));
+						map.addControl(new AMap.Scale);
+					});
+				})
+
+			}();
+		</script>
+</body>
+
+</html>

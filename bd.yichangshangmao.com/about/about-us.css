@@ -1,0 +1,215 @@
+@media screen and (min-width: 1070px) {
+    .mobile-about {
+        display: none;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: Helvetica Neue, Helvetica;
+    }
+
+    .clear:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+
+    }
+
+    img {
+        display: block;
+    }
+
+    html,body {
+        width: 100%;
+        height: 100%;
+    }
+
+    .pc-about {
+        width: 100%;
+        height: 100%;
+        background-color: #dde0e3;
+        position: relative;
+    }
+
+    .pc-about .cnt {
+        width: 1070px;
+        height: 400px;
+        position: absolute;
+        transform: translateX(-50%) translateY(-35%);
+        top: 50%;
+        left: 50%;
+    }
+
+    .pc-about .cnt .cnt-left {
+        width: 535px;
+        height: 400px;
+        float: left;
+    }
+
+    .pc-about .cnt .cnt-right {
+        width: 535px;
+        height: 400px;
+        float: right;
+        background: #fff;
+        padding-left: 42px;
+        padding-right: 42px;
+        box-sizing: border-box;
+    }
+
+    .pc-about .cnt .cnt-right .cnt-title {
+        font-family: PingFang-SC-UltraLight;
+        font-size: 30px;
+        line-height: 30px;
+        color: #000000;
+        letter-spacing: 0;
+        text-align: left;
+        margin-top: 63px;
+        font-weight: 300;
+    }
+
+    .pc-about .cnt .cnt-right .cnt-line {
+        background-image: linear-gradient(-142deg, #28f092 0%, #30cce8 100%);
+        width: 61px;
+        height: 2px;
+        border: 0px;
+        margin-top: 26px;
+    }
+
+    .pc-about .cnt .cnt-right .cnt-detail {
+        font-family: PingFang-SC-Regular;
+        font-size: 14px;
+        color: #35393f;
+        letter-spacing: 0;
+        text-align: justify;
+        line-height: 22px;
+        margin-top: 26px;
+    }
+
+    .head-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90px;
+        color: white;
+        background: black;
+    }
+    .head-bar-inner {
+        width: 1070px;
+        height: 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .head-bar-left {
+        display: inline-block;
+        float: left;
+    }
+    .head-bar-right {
+        display: inline-block;
+        float: right;
+        width: 300px;
+        font-size: 20px;
+    }
+    .head-bar-right > div {
+        display: flex;
+        justify-content: space-between;
+    }
+    .head-bar-right > div span {
+        font-size: 20px;
+        font-family:PingFangSC-Regular;
+        cursor: pointer;
+    }
+    #toAboutUS {
+        color:#01c2c3;
+        cursor: auto;
+    }
+}
+
+@media screen and (max-width: 1069px) {
+    .pc-about {
+        display: none;
+    }
+
+    html,body {
+        width: 100%;
+        height: 100%;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: Helvetica;
+    }
+
+    .clear:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0
+    }
+
+    img {
+        display: block;
+    }
+
+    .mobile-about {
+        width: 100%;
+        max-width: 640px;
+        min-height: 100%;
+        margin: 0 auto;
+        background-color: #fff;
+        position: relative;
+    }
+
+    .mobile-about .cnt {
+        width: 100%;
+    }
+
+    .mobile-about .cnt .cnt-left {
+        width: 100%;
+    }
+
+    .mobile-about .cnt .cnt-right {
+        width: 100%;
+        background: #fff;
+        padding-left: 33px;
+        padding-right: 33px;
+        box-sizing: border-box;
+    }
+
+    .mobile-about .cnt .cnt-right .cnt-title {
+        font-family: PingFang-SC-UltraLight;
+        font-size: 30px;
+        line-height: 30px;
+        color: #000000;
+        letter-spacing: 0;
+        text-align: left;
+        margin-top: 33px;
+        font-weight: 300;
+    }
+
+    .mobile-about .cnt .cnt-right .cnt-line {
+        background-image: linear-gradient(-142deg, #28f092 0%, #30cce8 100%);
+        width: 61px;
+        height: 2px;
+        border: 0px;
+        margin-top: 26px;
+    }
+
+    .mobile-about .cnt .cnt-right .cnt-detail {
+        font-family: PingFang-SC-Regular;
+        font-size: 14px;
+        color: #35393f;
+        letter-spacing: 0;
+        text-align: justify;
+        line-height: 30px;
+        margin-top: 26px;
+        font-weight: 300;
+        padding-bottom: 50px;
+    }
+}
